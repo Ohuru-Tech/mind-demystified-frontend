@@ -213,25 +213,54 @@ export default function Courses() {
             variant={activeFilter === "popular" ? "filled" : "outlined"}
           />
         </Stack>
-        <Grid container mt={"60px"} justifyContent={"center"} rowGap={"20px"}>
-          {courses.map((course) => {
-            return (
-              <Grid size={{ xs: 12, lg: 4, md: 6, sm: 12 }} key={course.id}>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <CourseCard course={course} />
-                </Box>
-              </Grid>
-            );
-          })}
-        </Grid>
-        {hasMore && (
+        {courses.length > 0 ? (
+          <Grid container mt={"60px"} justifyContent={"center"} rowGap={"20px"}>
+            {courses.map((course) => {
+              return (
+                <Grid size={{ xs: 12, lg: 4, md: 6, sm: 12 }} key={course.id}>
+                  <Box
+                    sx={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <CourseCard course={course} />
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
+        ) : (
+          <Stack
+            direction={"column"}
+            spacing={"20px"}
+            mt={"60px"}
+            alignItems={"center"}
+            sx={{
+              padding: "40px",
+              backgroundColor: "white",
+              borderRadius: "20px",
+              border: "1px solid #E0E0E0",
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
+            <Typography variant="h6" textAlign={"center"}>
+              No courses available
+            </Typography>
+            <Typography
+              variant="body2"
+              textAlign={"center"}
+              color="text.secondary"
+            >
+              We're currently updating our course catalog. Please check back
+              later for new courses.
+            </Typography>
+          </Stack>
+        )}
+        {hasMore && courses.length > 0 && (
           <Stack direction={"row"} justifyContent={"center"} mt={"60px"}>
             <Button
               variant="contained"
