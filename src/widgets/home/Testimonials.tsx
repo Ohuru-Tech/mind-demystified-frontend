@@ -6,8 +6,15 @@ import { TestimonialCard } from "./TestimonialCard";
 const testimonialsAPIs = TestimonialsAPIs();
 
 export const Testimonials = async () => {
-  const testimonialResults = await testimonialsAPIs.getTestimonials(10, 0);
-  const testimonials: Testimonial[] = testimonialResults.results;
+  let testimonials: Testimonial[] = [];
+
+  try {
+    const testimonialResults = await testimonialsAPIs.getTestimonials(10, 0);
+    testimonials = testimonialResults.results;
+  } catch (error) {
+    console.error("Failed to fetch testimonials:", error);
+    testimonials = [];
+  }
 
   return (
     <Container
@@ -42,38 +49,67 @@ export const Testimonials = async () => {
           <Typography variant="h2">Testimonials</Typography>
           {/* <Typography variant="body1">Real Stories, Real Shifts</Typography> */}
         </Stack>
-        <Stack
-          direction={"row"}
-          spacing={"16px"}
-          sx={{
-            overflow: "scroll",
-            width: "100%",
-            position: "relative",
-          }}
-        >
-          <Box
+
+        {testimonials.length > 0 ? (
+          <Stack
+            direction={"row"}
+            spacing={"16px"}
             sx={{
-              display: "flex",
-              gap: "16px",
-              animation: "scroll 100s linear infinite",
-              "&:hover": {
-                animationPlayState: "paused",
-              },
-              "@keyframes scroll": {
-                "0%": {
-                  transform: "translateX(0)",
-                },
-                "100%": {
-                  transform: "translateX(-50%)",
-                },
-              },
+              overflow: "scroll",
+              width: "100%",
+              position: "relative",
             }}
           >
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </Box>
-        </Stack>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "16px",
+                animation: "scroll 100s linear infinite",
+                "&:hover": {
+                  animationPlayState: "paused",
+                },
+                "@keyframes scroll": {
+                  "0%": {
+                    transform: "translateX(0)",
+                  },
+                  "100%": {
+                    transform: "translateX(-50%)",
+                  },
+                },
+              }}
+            >
+              {testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={testimonial.id}
+                  testimonial={testimonial}
+                />
+              ))}
+            </Box>
+          </Stack>
+        ) : (
+          <Stack
+            direction={"column"}
+            spacing={"20px"}
+            alignItems={"center"}
+            sx={{
+              padding: "40px",
+              backgroundColor: "white",
+              borderRadius: "20px",
+              border: "1px solid #E0E0E0",
+            }}
+          >
+            <Typography variant="h6" textAlign={"center"}>
+              Testimonials are currently unavailable
+            </Typography>
+            <Typography
+              variant="body2"
+              textAlign={"center"}
+              color="text.secondary"
+            >
+              Please check back later for testimonials.
+            </Typography>
+          </Stack>
+        )}
       </Stack>
     </Container>
   );

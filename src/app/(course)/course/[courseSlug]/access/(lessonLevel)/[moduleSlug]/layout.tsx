@@ -7,11 +7,11 @@ import { MindDemystifiedNavBar } from "@/widgets/NavBar";
 import { getModuleAccess } from "@/app/actions/course";
 import { LessonAccessDrawer } from "@/widgets/courses/LessonAccessDrawer";
 import { CourseModuleAccess } from "@/models/course";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
 
-export default function AccessLayout(props: { children: React.ReactNode }) {
+export default function AccessLayout(props: { children: ReactNode }) {
   const { children } = props;
   const { courseSlug, moduleSlug } = useParams<{
     courseSlug: string;

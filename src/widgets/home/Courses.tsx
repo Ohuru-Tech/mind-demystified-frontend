@@ -14,8 +14,13 @@ import Link from "next/link";
 const courseAPIs = CourseAPIs();
 
 export const getCourses = async () => {
-  const response: CourseList[] = await courseAPIs.getFeaturedCourses();
-  return response;
+  try {
+    const response: CourseList[] = await courseAPIs.getFeaturedCourses();
+    return response;
+  } catch (error) {
+    console.error("Failed to fetch featured courses:", error);
+    return [];
+  }
 };
 
 export const Courses = async () => {
@@ -71,28 +76,59 @@ export const Courses = async () => {
           </Typography>
         </Stack>
         <Stack direction={"column"} spacing={"62px"}>
-          <Stack
-            direction={"row"}
-            spacing={2}
-            alignItems={"center"}
-            justifyContent={"center"}
-            width={"100%"}
-          >
+          {courses.length > 0 ? (
+            <>
+              <Stack
+                direction={"row"}
+                spacing={2}
+                alignItems={"center"}
+                justifyContent={"center"}
+                width={"100%"}
+              >
+                <Stack
+                  direction={"row"}
+                  sx={{ flexWrap: "wrap", rowGap: "16px", columnGap: "16px" }}
+                  justifyContent={"center"}
+                >
+                  {courses.map((course) => {
+                    return <CourseCard course={course} key={course.id} />;
+                  })}
+                </Stack>
+              </Stack>
+              <Stack
+                direction={"row"}
+                justifyContent={"center"}
+                flexWrap={"wrap"}
+              >
+                <Button component={Link} href="/courses" variant="contained">
+                  See More
+                </Button>
+              </Stack>
+            </>
+          ) : (
             <Stack
-              direction={"row"}
-              sx={{ flexWrap: "wrap", rowGap: "16px", columnGap: "16px" }}
-              justifyContent={"center"}
+              direction={"column"}
+              spacing={"20px"}
+              alignItems={"center"}
+              sx={{
+                padding: "40px",
+                backgroundColor: "white",
+                borderRadius: "20px",
+                border: "1px solid #E0E0E0",
+              }}
             >
-              {courses.map((course) => {
-                return <CourseCard course={course} key={course.id} />;
-              })}
+              <Typography variant="h6" textAlign={"center"}>
+                Courses are currently unavailable
+              </Typography>
+              <Typography
+                variant="body2"
+                textAlign={"center"}
+                color="text.secondary"
+              >
+                Please check back later for available courses.
+              </Typography>
             </Stack>
-          </Stack>
-          <Stack direction={"row"} justifyContent={"center"} flexWrap={"wrap"}>
-            <Button component={Link} href="/courses" variant="contained">
-              See More
-            </Button>
-          </Stack>
+          )}
         </Stack>
       </Stack>
     </Container>
