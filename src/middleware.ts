@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
 
   if (session && session.access) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/accounts/verify-token/`,
+      `${process.env.NEXT_PUBLIC_API_URL}accounts/verify-token/`,
       {
         method: "GET",
         headers: {
@@ -27,7 +27,7 @@ export async function middleware(request: NextRequest) {
 
     if (response.status !== 200) {
       const refreshResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/accounts/refresh-token/`,
+        `${process.env.NEXT_PUBLIC_API_URL}accounts/refresh-token/`,
         {
           method: "POST",
           headers: {
