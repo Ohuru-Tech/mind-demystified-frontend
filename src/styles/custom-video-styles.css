@@ -1,0 +1,5 @@
+.vjs-control-bar {
+  font-size: 16px !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(30px);
+}

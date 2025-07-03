@@ -1,0 +1,67 @@
+"use client";
+import { Stack } from "@mui/material";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import {
+  createPayPalOrderForCourse,
+  capturePayPalOrderForCourse,
+  createPayPalOrderForBundle,
+  capturePayPalOrderForBundle,
+} from "@/app/actions/course";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+export default function PayPalCourse({
+  course,
+  bundle,
+  selectedCourses,
+  total,
+  isSummaryOpen,
+  setIsSummaryOpen,
+  selectedPackage,
+}: any) {
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  const initialOptions = {
+    clientId:
+      "AW-6FKagqGdYC1cmVt8_btplikfiD1IeN2N-GObxT4pnZV4DUbWI6YPlywYXm99Rhi-D5RZEJUu2WPix",
+    enableFunding: "venmo",
+    disableFunding: "",
+    buyerCountry: "US",
+    currency: "USD",
+    dataPageType: "product-details",
+    components: "buttons",
+    dataSdkIntegrationSource: "developer-studio",
+  };
+
+  return (
+    <Stack direction={"column"} spacing={"32px"} width={"100%"}>
+      <PayPalScriptProvider options={initialOptions}>
+        <PayPalButtons
+          onApprove={async (data, actions) => {
+            const orderId = data.orderID;
+            const response = selectedPackage
+              ? await capturePayPalOrderForBundle(orderId)
+              : await capturePayPalOrderForCourse(orderId);
+            const errorDetail = response?.details?.[0];
+            if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
+              return actions.restart();
+            } else if (errorDetail) {
+              setIsSummaryOpen && setIsSummaryOpen(true);
+              setError(errorDetail);
+            } else {
+              router.push("/learning");
+            }
+          }}
+          createOrder={async () => {
+            setIsSummaryOpen && setIsSummaryOpen(false);
+            const response = selectedPackage
+              ? await createPayPalOrderForBundle(bundle.slug)
+              : await createPayPalOrderForCourse(course.slug);
+            return response.id;
+          }}
+        />
+      </PayPalScriptProvider>
+    </Stack>
+  );
+}

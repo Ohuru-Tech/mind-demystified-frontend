@@ -1,0 +1,61 @@
+.paypal-button-overrides {
+  .paypal-button-tagline {
+    display: none !important;
+  }
+}
+
+.paypal-card-fields-provider {
+  input {
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    color: #323232;
+  }
+  .invalid {
+    color: red;
+  }
+  input:focus {
+    border: 1px solid #323232;
+    border-radius: 12px;
+  }
+}
+
+/* All input fields styling */
+input {
+  height: 78px;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  font-family: gilroyMedium;
+  font-size: 18px;
+  color: #323232;
+  padding: 0 16px;
+  outline: none;
+}
+
+input:hover {
+  border: 1px solid #323232;
+}
+
+input:focus {
+  border: 1px solid #323232;
+  outline: none;
+}
+
+/* PayPal iframe input focus styles */
+[data-paypal-card-field] input:focus,
+.paypal-card-field input:focus,
+iframe input:focus {
+  border: 1px solid #323232 !important;
+  outline: none !important;
+}
+
+/* All input fields focus styles */
+input:focus {
+  border: 1px solid #323232 !important;
+  outline: none;
+}
+
+/* Submit button focus styles */
+.btn:focus {
+  border: 1px solid #323232 !important;
+  outline: none;
+}

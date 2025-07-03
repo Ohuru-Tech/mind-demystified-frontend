@@ -1,0 +1,25 @@
+/* Override Google Sign-In button width */
+.google-signin-container {
+  width: 100% !important;
+}
+
+.google-signin-container iframe {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Target the Google button wrapper */
+.google-signin-container > div {
+  width: 100% !important;
+}
+
+/* Ensure the button itself takes full width */
+.google-signin-container > div > div {
+  width: 100% !important;
+}
+
+/* Override any inline styles Google might apply */
+.google-signin-container [style*="width"] {
+  width: 100% !important;
+}
