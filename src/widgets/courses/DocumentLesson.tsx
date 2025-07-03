@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Stack, Button } from "@mui/material";
+import { Box, Typography, Stack, Button } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { markLessonComplete } from "@/app/actions/course";

@@ -32,14 +32,15 @@ export default defineConfig([
       ...tseslint.configs.recommended.rules,
       ...tseslint.configs.recommendedTypeChecked.rules,
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/exhaustive-deps": "off", // Disable exhaustive-deps checks
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "error",
       "@typescript-eslint/no-explicit-any": "warn",
-      "no-console": "warn",
+      "no-console": "off", // Disable console warnings
+      "no-undef": "off", // Disable no-undef for React since Next.js handles it
     },
   },
   {

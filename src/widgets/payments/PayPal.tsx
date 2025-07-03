@@ -10,7 +10,7 @@ export const PayPal = ({
   setIsSummaryOpen,
 }: {
   sessionId: string;
-  setIsSummaryOpen: (isSummaryOpen: boolean) => void;
+  setIsSummaryOpen: (open: boolean) => void;
 }) => {
   const router = useRouter();
 

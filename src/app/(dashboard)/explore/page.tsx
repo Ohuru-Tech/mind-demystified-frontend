@@ -38,7 +38,7 @@ export default function Explore() {
       const courses: CourseList[] = response.results;
       setHasMore(response.next !== null);
       return courses;
-    } catch (error) {
+    } catch {
       const errorMessage = "Failed to load courses";
       setError(errorMessage);
       showError(errorMessage);
@@ -55,7 +55,7 @@ export default function Explore() {
         const ordering = activeFilter === "all" ? undefined : activeFilter;
         const courses = await getCourses(ordering, 0);
         setCourses(courses);
-      } catch (error) {
+      } catch {
         const errorMessage = "Failed to load courses";
         setError(errorMessage);
         showError(errorMessage);
@@ -74,7 +74,7 @@ export default function Explore() {
         const ordering = activeFilter === "all" ? undefined : activeFilter;
         const courses = await getCourses(ordering, offset);
         setCourses((prevCourses) => [...prevCourses, ...courses]);
-      } catch (error) {
+      } catch {
         const errorMessage = "Failed to load more courses";
         showError(errorMessage);
       } finally {
@@ -110,7 +110,7 @@ export default function Explore() {
                   activeFilter === "all" ? undefined : activeFilter;
                 const courses = await getCourses(ordering, 0);
                 setCourses(courses);
-              } catch (error) {
+              } catch {
                 const errorMessage = "Failed to load courses";
                 setError(errorMessage);
                 showError(errorMessage);

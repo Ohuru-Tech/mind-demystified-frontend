@@ -1,4 +1,4 @@
-import { Container, Grid, Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import { PaymentSummary } from "@/widgets/sessions/PaymentSummary";
 import { BookingSummary } from "@/widgets/sessions/BookingSummary";
 

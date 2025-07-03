@@ -23,7 +23,7 @@ dayjs.extend(customTimeFormat);
 
 interface TimePickerProps {
   selectedDate: Dayjs | null;
-  onTimeSelect: (time: dayjs.Dayjs) => void;
+  onTimeSelect: (_time: dayjs.Dayjs) => void;
   selectedTime: dayjs.Dayjs | null;
   onBook: () => void;
   loading: boolean;

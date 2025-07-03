@@ -85,7 +85,6 @@ const NavigationItem = ({
 export const MobileNavigationDrawer = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [drawerWidth, setDrawerWidth] = useState(60);
 
   useEffect(() => {
     const fetchProfile = async () => {

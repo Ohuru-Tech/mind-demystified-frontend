@@ -1,6 +1,6 @@
 import theme from "@/theme";
 import { MindDemystifiedNavBar } from "@/widgets/NavBar";
-import { Box, ThemeProvider } from "@mui/material";
+import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
 import { Metadata } from "next";

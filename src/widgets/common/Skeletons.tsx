@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Skeleton, Stack, Grid, Avatar, Chip } from "@mui/material";
+import { Skeleton, Stack, Grid } from "@mui/material";
 
 // Post skeleton loader for community feed
 export const PostSkeleton: React.FC = () => (

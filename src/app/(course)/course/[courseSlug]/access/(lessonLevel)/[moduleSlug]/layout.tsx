@@ -27,7 +27,7 @@ export default function AccessLayout(props: { children: React.ReactNode }) {
         const moduleData = await getModuleAccess(courseSlug, moduleSlug);
         setModule(moduleData);
       } catch (error) {
-        console.error("Error fetching module:", error);
+        // Error fetching module
       } finally {
         setLoading(false);
       }

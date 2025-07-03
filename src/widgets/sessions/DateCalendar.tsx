@@ -22,10 +22,10 @@ dayjs.extend(timezone);
 
 interface DateCalendarProps {
   selectedDate: Dayjs | null;
-  onDateChange: (date: Dayjs | null) => void;
+  onDateChange: (_date: Dayjs | null) => void;
   selectedTimezone: string;
   loading: boolean;
-  onTimezoneChange: (timezone: string) => void;
+  onTimezoneChange: (_timezone: string) => void;
   initialAvailability?: any; // Add prop for initial availability data
   isMobile?: boolean;
 }
