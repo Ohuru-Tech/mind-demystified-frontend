@@ -6,7 +6,6 @@ import {
   CircularProgress,
   Alert,
   Button,
-  Box,
   Avatar,
   IconButton,
   TextField,
@@ -26,13 +25,9 @@ import { updateProfileAction } from "@/app/actions/profile";
 import { Post } from "@/models/community";
 import { UserProfile } from "@/models/profile";
 import PostCard from "@/widgets/community/PostCard";
-import UserAvatar from "@/widgets/community/UserAvatar";
 import NewPostModal from "@/widgets/community/NewPostModal";
-import {
-  LoadingState,
-  CommunityFeedLoadingState,
-} from "@/widgets/common/LoadingState";
-import { ErrorState, EmptyState } from "@/widgets/common/ErrorState";
+import { CommunityFeedLoadingState } from "@/widgets/common/LoadingState";
+import { ErrorState } from "@/widgets/common/ErrorState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 
 export default function MyProfilePage() {

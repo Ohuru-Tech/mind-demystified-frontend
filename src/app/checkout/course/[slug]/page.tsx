@@ -1,9 +1,8 @@
 "use client";
 
 import { CourseBookingSummary } from "@/widgets/courses/CourseBookingSummary";
-import { CourseBundleCard } from "@/widgets/courses/CourseBundleCard";
 import { CoursePaymentSummary } from "@/widgets/courses/CoursePaymentSummary";
-import { Container, Grid, Stack } from "@mui/material";
+import { Grid } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 

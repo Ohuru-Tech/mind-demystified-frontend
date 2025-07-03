@@ -1,4 +1,4 @@
-import { alpha, Box, Container, Stack, Typography } from "@mui/material";
+import { alpha, Box, Stack, Typography } from "@mui/material";
 
 const areas = [
   {

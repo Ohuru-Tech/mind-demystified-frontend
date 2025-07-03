@@ -1,4 +1,4 @@
-import { CourseList, EnrolledCourse } from "@/models/course";
+import { CourseList } from "@/models/course";
 import {
   alpha,
   Avatar,

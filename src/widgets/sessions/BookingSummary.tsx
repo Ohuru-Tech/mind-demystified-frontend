@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Divider, Stack, Step, Stepper, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { SessionSummary } from "@/widgets/sessions/SessionSummary";
 import Image from "next/image";
 import { SessionBookingDetails, SessionPackage } from "@/models/session";

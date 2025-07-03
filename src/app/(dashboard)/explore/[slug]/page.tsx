@@ -4,7 +4,6 @@ import { CourseTestimonials } from "@/widgets/courses/CourseTestimonials";
 import { CourseHero } from "@/widgets/courses/CourseHero";
 import { CourseModules } from "@/widgets/courses/CourseModules";
 import { Box, Container } from "@mui/material";
-import { CourseAppBar } from "@/widgets/courses/CourseAppBar";
 import { CourseCommunity } from "@/widgets/courses/CourseCommunity";
 import { CourseFAQ } from "@/widgets/courses/CourseFAQ";
 

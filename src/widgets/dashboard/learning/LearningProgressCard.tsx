@@ -1,10 +1,8 @@
 import { EnrolledCourse } from "@/models/course";
 import {
   alpha,
-  Avatar,
   Box,
   Card,
-  Chip,
   LinearProgress,
   Stack,
   Typography,

@@ -2,7 +2,6 @@
 
 import { getSession } from "@/app/lib/session";
 import { AccountsAPIs } from "@/utils/accountsAPIs";
-import { UserProfile } from "@/models/profile";
 
 export async function getUserProfileAction(userId: number) {
   try {

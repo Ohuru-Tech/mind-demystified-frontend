@@ -21,8 +21,6 @@ import {
   markNotificationsAsRead,
 } from "@/app/actions/community";
 import NotificationCard from "@/widgets/community/NotificationCard";
-import { LoadingState } from "@/widgets/common/LoadingState";
-import { ErrorState, EmptyState } from "@/widgets/common/ErrorState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 
 interface Notification {
@@ -51,16 +49,8 @@ interface Notification {
   action_requested?: boolean;
 }
 
-interface NotificationsResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Notification[];
-}
-
 export default function NotificationsPage() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
@@ -110,13 +100,7 @@ export default function NotificationsPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch profile first
-      const result = await getProfile();
-      const profileData =
-        result && result.success && result.data ? result.data : null;
-      setProfile(profileData);
-
-      // Then fetch notifications
+      await getProfile();
       await fetchNotifications(true);
     };
 

@@ -26,7 +26,6 @@ interface DateCalendarProps {
   selectedTimezone: string;
   loading: boolean;
   onTimezoneChange: (timezone: string) => void;
-  serverTimezone: string;
   initialAvailability?: any; // Add prop for initial availability data
   isMobile?: boolean;
 }
@@ -37,7 +36,6 @@ export const DateCalendar = ({
   selectedTimezone,
   loading,
   onTimezoneChange,
-  serverTimezone,
   initialAvailability,
   isMobile = false,
 }: DateCalendarProps) => {

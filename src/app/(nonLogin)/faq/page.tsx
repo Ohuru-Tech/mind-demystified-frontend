@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Container, Typography, Stack, Grid } from "@mui/material";
 import { FaqCard } from "@/widgets/FaqCard";
 import { Metadata } from "next";

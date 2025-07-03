@@ -15,11 +15,8 @@ import {
 } from "@mui/material";
 import { CourseCard } from "@/widgets/courses/CourseCard";
 import { useEffect, useState } from "react";
-import {
-  LoadingState,
-  CourseGridLoadingState,
-} from "@/widgets/common/LoadingState";
-import { ErrorState, EmptyState } from "@/widgets/common/ErrorState";
+import { CourseGridLoadingState } from "@/widgets/common/LoadingState";
+import { ErrorState } from "@/widgets/common/ErrorState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 
 const courseAPIs = CourseAPIs();

@@ -30,7 +30,7 @@ import {
 import { PostCreate, CommentCreate } from "@/models/community";
 import { axiosInstance } from "@/utils/axiosInstance";
 
-import { ErrorHandler, AppError } from "@/utils/errorHandler";
+import { ErrorHandler } from "@/utils/errorHandler";
 
 export async function createCommunityPost(postData: PostCreate) {
   try {

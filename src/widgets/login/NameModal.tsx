@@ -12,7 +12,6 @@ import {
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { NameField } from "./NameField";
-import { LoadingState, FormLoadingState } from "@/widgets/common/LoadingState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 
 type NameForm = {

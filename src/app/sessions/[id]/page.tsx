@@ -15,14 +15,13 @@ import timezone from "dayjs/plugin/timezone";
 import { SessionDetails } from "@/widgets/sessions/SessionDetails";
 import { DateCalendar } from "@/widgets/sessions/DateCalendar";
 import { TimePicker } from "@/widgets/sessions/TimePicker";
-import { SessionPackage, SessionSubscription } from "@/models/session";
+import { SessionPackage } from "@/models/session";
 import {
   createSubscribedPackage,
   getAvailability,
   getSessionDetails,
   getSubscribedPackages,
   bookSession,
-  getSessionSubscriptionDetail,
 } from "@/app/actions/session";
 import { useParams, useRouter } from "next/navigation";
 

@@ -1,4 +1,4 @@
-import { Typography, Button, Box } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import { Stack } from "@mui/material";
 
 export const AboutQuote = () => {

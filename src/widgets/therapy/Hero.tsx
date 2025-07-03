@@ -1,12 +1,4 @@
-import {
-  Stack,
-  Typography,
-  Button,
-  Box,
-  Container,
-  alpha,
-} from "@mui/material";
-import Link from "next/link";
+import { Stack, Typography, Box, Container, alpha } from "@mui/material";
 import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const Hero = () => {

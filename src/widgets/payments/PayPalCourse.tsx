@@ -7,19 +7,14 @@ import {
   createPayPalOrderForBundle,
   capturePayPalOrderForBundle,
 } from "@/app/actions/course";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function PayPalCourse({
   course,
   bundle,
-  selectedCourses,
-  total,
-  isSummaryOpen,
   setIsSummaryOpen,
   selectedPackage,
 }: any) {
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const initialOptions = {
@@ -48,7 +43,6 @@ export default function PayPalCourse({
               return actions.restart();
             } else if (errorDetail) {
               setIsSummaryOpen && setIsSummaryOpen(true);
-              setError(errorDetail);
             } else {
               router.push("/learning");
             }

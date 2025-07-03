@@ -26,7 +26,6 @@ import {
 } from "@/app/actions/session";
 import { useRouter } from "next/navigation";
 import { FreeCallBookingDetails } from "@/models/session";
-import Image from "next/image";
 
 // Extend dayjs with timezone plugins
 dayjs.extend(utc);

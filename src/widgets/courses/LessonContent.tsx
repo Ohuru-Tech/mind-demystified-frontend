@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { useRef } from "react";
 import { LessonVideoPlayer } from "./LessonVideoPlayer";
 import { InteractiveTranscript } from "./InteractiveTranscript";

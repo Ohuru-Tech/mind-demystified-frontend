@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import { VideoPlayer } from "@/widgets/VideoPlayer";
 
 export const LessonVideoPlayer = ({

@@ -7,7 +7,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import Link from "next/link";
 import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const TherapySession = () => {

@@ -2,7 +2,7 @@
 
 import theme from "@/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { Box, Grid, ThemeProvider, Fab, useMediaQuery } from "@mui/material";
+import { Box, ThemeProvider, Fab, useMediaQuery } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { MindDemystifiedNavBar } from "@/widgets/NavBar";
 import {
@@ -10,14 +10,12 @@ import {
   CommunityDrawerMobile,
 } from "@/widgets/community/CommunityDrawer";
 import NewPostModal from "@/widgets/community/NewPostModal";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { getProfile } from "@/app/actions/profile";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
 
 export default function CommunityLayout(props: { children: React.ReactNode }) {
   const { children } = props;
-  const router = useRouter();
   const themeInstance = theme;
   const isLargeScreen = useMediaQuery(themeInstance.breakpoints.up("lg"));
   const [profile, setProfile] = useState<any>(null);

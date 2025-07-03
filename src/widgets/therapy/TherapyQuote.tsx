@@ -1,6 +1,5 @@
-import { Typography, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
-import Link from "next/link";
 import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const TherapyQuote = () => {

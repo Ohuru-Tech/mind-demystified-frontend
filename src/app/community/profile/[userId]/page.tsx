@@ -16,20 +16,14 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getUserProfileAction, getProfile } from "@/app/actions/profile";
-import {
-  getUserPostsAction,
-  sendFollowRequestAction,
-} from "@/app/actions/community";
+import { getUserPostsAction } from "@/app/actions/community";
 import { Post } from "@/models/community";
 import { UserProfile } from "@/models/profile";
 import PostCard from "@/widgets/community/PostCard";
 import NewPostModal from "@/widgets/community/NewPostModal";
 import { FollowButton } from "@/widgets/community/FollowButton";
-import {
-  LoadingState,
-  CommunityFeedLoadingState,
-} from "@/widgets/common/LoadingState";
-import { ErrorState, EmptyState } from "@/widgets/common/ErrorState";
+import { CommunityFeedLoadingState } from "@/widgets/common/LoadingState";
+import { ErrorState } from "@/widgets/common/ErrorState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 
 export default function UserProfilePage() {

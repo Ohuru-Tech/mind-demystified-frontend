@@ -3,10 +3,7 @@
 import { getProfile } from "@/app/actions/profile";
 import { useState, useEffect } from "react";
 import CommunityFeed from "@/widgets/community/CommunityFeed";
-import {
-  LoadingState,
-  CommunityFeedLoadingState,
-} from "@/widgets/common/LoadingState";
+import { CommunityFeedLoadingState } from "@/widgets/common/LoadingState";
 import { ErrorState, EmptyState } from "@/widgets/common/ErrorState";
 import { useSnackbar } from "@/contexts/SnackbarContext";
 

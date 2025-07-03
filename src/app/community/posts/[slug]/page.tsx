@@ -84,13 +84,7 @@ export default function PostDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       if (postSlug) {
-        // Fetch profile first
-        const result = await getProfile();
-        const profileData =
-          result && result.success && result.data ? result.data : null;
-        setProfile(profileData);
-
-        // Then fetch post and comments
+        await getProfile();
         await fetchPost();
         await fetchComments(true);
       }

@@ -3,19 +3,15 @@
 import { Stack } from "@mui/material";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { capturePaypalOrder, createPayPalOrder } from "@/app/actions/session";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export const PayPal = ({
   sessionId,
-  isSummaryOpen,
   setIsSummaryOpen,
 }: {
   sessionId: string;
-  isSummaryOpen: boolean;
   setIsSummaryOpen: (isSummaryOpen: boolean) => void;
 }) => {
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const initialOptions = {
@@ -42,7 +38,6 @@ export const PayPal = ({
               return actions.restart();
             } else if (errorDetail) {
               setIsSummaryOpen(true);
-              setError(errorDetail);
             } else {
               router.push("/sessions?payment_success=true");
             }

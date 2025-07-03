@@ -1,5 +1,5 @@
 import { getLessonAccess, getModuleAccess } from "@/app/actions/course";
-import { Box, Container, Alert, Button } from "@mui/material";
+import { Container, Alert } from "@mui/material";
 import { LessonNavigation } from "@/widgets/courses/LessonNavigation";
 import { LessonContent } from "@/widgets/courses/LessonContent";
 import { DocumentLesson } from "@/widgets/courses/DocumentLesson";

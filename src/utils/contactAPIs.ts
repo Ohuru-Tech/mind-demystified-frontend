@@ -18,7 +18,6 @@ export const ContactAPIs = () => {
       "/contact/",
       contactData
     );
-    console.log(response.data);
     return response.data;
   };
 

@@ -1,4 +1,3 @@
-import { CourseAPIs } from "@/utils/courseAPIs";
 import { CourseAbout } from "@/widgets/courses/CourseAbout";
 import { CourseTestimonials } from "@/widgets/courses/CourseTestimonials";
 import { CourseHero } from "@/widgets/courses/CourseHero";

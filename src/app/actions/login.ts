@@ -2,7 +2,6 @@
 
 import { AccountsAPIs } from "@/utils/accountsAPIs";
 import { createSession } from "@/app/lib/session";
-import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 export async function login(token: string) {
