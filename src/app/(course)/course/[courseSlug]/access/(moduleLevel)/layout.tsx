@@ -5,6 +5,21 @@ import { CourseAccessDrawer } from "@/widgets/courses/CourseAccessDrawer";
 import { MindDemystifiedNavBar } from "@/widgets/NavBar";
 import { getCourseAccessDetail } from "@/app/actions/course";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ courseSlug: string }>;
+}): Promise<Metadata> {
+  const { courseSlug } = await params;
+  const course = await getCourseAccessDetail(courseSlug);
+
+  return {
+    title: `${course.title} - Mind Demystified`,
+    description: `Learn ${course.title} with Mind Demystified's comprehensive course.`,
+  };
+}
 
 export default async function AccessLayout(props: {
   children: React.ReactNode;

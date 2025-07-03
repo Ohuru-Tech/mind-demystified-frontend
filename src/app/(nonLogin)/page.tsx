@@ -5,6 +5,13 @@ import { Courses } from "@/widgets/home/Courses";
 import { TherapySession } from "@/widgets/home/TherapySession";
 import { Testimonials } from "@/widgets/home/Testimonials";
 import { FAQ } from "@/widgets/FAQ";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mind Demystified - Holistic Mental Health & Wellness",
+  description:
+    "Transform your mental health with our holistic approach to wellness. Access therapy sessions, courses, and community support.",
+};
 
 export default function Home() {
   return (

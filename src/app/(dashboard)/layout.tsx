@@ -4,6 +4,13 @@ import theme from "@/theme";
 import { Box } from "@mui/material";
 import { MindDemystifiedNavBar } from "@/widgets/NavBar";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard - Mind Demystified",
+  description:
+    "Access your learning progress, community, and wellness resources on Mind Demystified.",
+};
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;

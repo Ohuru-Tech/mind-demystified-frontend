@@ -1,5 +1,12 @@
 import { Box, Container } from "@mui/material";
 import { LoginModal } from "@/widgets/login/LoginModal";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login - Mind Demystified",
+  description:
+    "Sign in to your Mind Demystified account to access your courses, therapy sessions, and community.",
+};
 
 export default async function Login({
   searchParams,

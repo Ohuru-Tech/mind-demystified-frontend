@@ -1,6 +1,13 @@
 import React from "react";
 import { Box, Container, Typography, Stack, Grid } from "@mui/material";
 import { FaqCard } from "@/widgets/FaqCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ - Mind Demystified",
+  description:
+    "Find answers to frequently asked questions about our courses, therapy sessions, and mental wellness services.",
+};
 
 const faqData = [
   {

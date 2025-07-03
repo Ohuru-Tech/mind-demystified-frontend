@@ -1,5 +1,12 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy - Mind Demystified",
+  description:
+    "Learn about our refund policy for courses and therapy sessions at Mind Demystified.",
+};
 
 export default function RefundPolicy() {
   return (

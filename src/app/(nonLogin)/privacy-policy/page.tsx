@@ -1,5 +1,12 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Mind Demystified",
+  description:
+    "Learn how we protect your privacy and handle your personal information at Mind Demystified.",
+};
 
 export default function PrivacyPolicy() {
   return (

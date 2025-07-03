@@ -1,5 +1,12 @@
 import React from "react";
 import { Box, Container, Typography, Card } from "@mui/material";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions - Mind Demystified",
+  description:
+    "Read our terms and conditions for using Mind Demystified's services, courses, and therapy sessions.",
+};
 
 export default function TermsConditions() {
   return (
