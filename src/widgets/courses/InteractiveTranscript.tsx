@@ -96,12 +96,12 @@ export const InteractiveTranscript = ({
     }
   }, [activeIndex]);
 
-  const handleSegmentClick = (startTime: number) => {
+  const handleSegmentClick = (_startTime: number) => {
     // Record the click time to prevent auto-scroll interference
     lastClickTime.current = Date.now();
 
     if (onSegmentClick) {
-      onSegmentClick(startTime);
+      onSegmentClick(_startTime);
     }
   };
 

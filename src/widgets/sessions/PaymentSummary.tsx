@@ -161,7 +161,6 @@ export const PaymentSummary = ({ sessionPackageId }: PaymentSummaryProps) => {
           </Stack>
         </Collapse>
         <PayPal
-          isSummaryOpen={isSummaryOpen}
           sessionId={sessionPackageId}
           setIsSummaryOpen={setIsSummaryOpen}
         />
