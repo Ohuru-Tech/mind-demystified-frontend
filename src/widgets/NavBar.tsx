@@ -379,16 +379,32 @@ export const MindDemystifiedNavBar = (props: NavBarProps) => {
                 {item.title}
               </Typography>
             ))}
-        {/* <Stack
-          direction={"row"}
-          spacing={2}
-          justifyContent={"center"}
-          width={"100%"}
-          sx={{ marginTop: "15% !important" }}
-          onClick={() => setOpen(false)}
-        >
-          {getCTA()}
-        </Stack> */}
+        {!isLoggedIn && (
+          <Stack
+            direction={"row"}
+            spacing={2}
+            justifyContent={"center"}
+            width={"100%"}
+            sx={{ marginTop: "15% !important" }}
+            onClick={() => setOpen(false)}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                paddingLeft: "22px",
+                paddingRight: "22px",
+                paddingTop: "5px",
+                paddingBottom: "5px",
+              }}
+              onClick={() => {
+                setLoginButtonOpen(true);
+                setOpen(false);
+              }}
+            >
+              Log In
+            </Button>
+          </Stack>
+        )}
       </Stack>
       <Menu
         anchorEl={profileMenuAnchor}
