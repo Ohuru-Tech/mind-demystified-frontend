@@ -296,7 +296,6 @@ export default function FreeCallReschedulePage() {
                 selectedTimezone={selectedTimezone}
                 onTimezoneChange={setSelectedTimezone}
                 loading={loading}
-                serverTimezone={serverTimezone}
                 initialAvailability={initialAvailability}
                 isMobile={true}
               />
@@ -384,7 +383,6 @@ export default function FreeCallReschedulePage() {
             selectedTimezone={selectedTimezone}
             onTimezoneChange={setSelectedTimezone}
             loading={loading}
-            serverTimezone={serverTimezone}
             initialAvailability={initialAvailability}
           />
         </Grid>

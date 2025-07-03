@@ -179,7 +179,6 @@ export default function SessionDetailPage() {
                 selectedTimezone={selectedTimezone}
                 onTimezoneChange={setSelectedTimezone}
                 loading={loading}
-                serverTimezone={serverTimezone}
                 initialAvailability={initialAvailability}
                 isMobile={true}
               />
@@ -233,7 +232,6 @@ export default function SessionDetailPage() {
             selectedTimezone={selectedTimezone}
             onTimezoneChange={setSelectedTimezone}
             loading={loading}
-            serverTimezone={serverTimezone}
             initialAvailability={initialAvailability}
           />
         </Grid>
