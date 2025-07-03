@@ -213,7 +213,7 @@ export default function Courses() {
             variant={activeFilter === "popular" ? "filled" : "outlined"}
           />
         </Stack>
-        {courses.length > 0 ? (
+        {courses?.length > 0 ? (
           <Grid container mt={"60px"} justifyContent={"center"} rowGap={"20px"}>
             {courses.map((course) => {
               return (
