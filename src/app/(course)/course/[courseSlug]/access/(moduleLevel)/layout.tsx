@@ -1,11 +1,17 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Box, ThemeProvider } from "@mui/material";
 import theme from "@/theme";
-import { CourseAccessDrawer } from "@/widgets/courses/CourseAccessDrawer";
 import { MindDemystifiedNavBar } from "@/widgets/NavBar";
 import { getCourseAccessDetail } from "@/app/actions/course";
+import { CourseAccessDrawer } from "@/widgets/courses/CourseAccessDrawer";
+import { CourseAccessDetail } from "@/models/course";
+import { ReactNode, useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
 import { Metadata } from "next";
+
+// Add revalidation for course access layout - 60 seconds
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,

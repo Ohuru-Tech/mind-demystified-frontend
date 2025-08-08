@@ -3,6 +3,9 @@ import { Icon } from "@iconify/react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { markLessonComplete } from "@/app/actions/course";
 
+// Add revalidation for DocumentLesson component - 60 seconds
+export const revalidate = 60;
+
 interface DocumentLessonProps {
   document_markdown?: string;
   title: string;

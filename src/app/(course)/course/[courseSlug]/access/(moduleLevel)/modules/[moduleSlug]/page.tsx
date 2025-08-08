@@ -4,6 +4,9 @@ import { Avatar, Container, Divider, Stack, Typography } from "@mui/material";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 
+// Add revalidation for module page - 60 seconds
+export const revalidate = 60;
+
 const lessonTypeConfig = {
   video: {
     icon: "mdi:play",

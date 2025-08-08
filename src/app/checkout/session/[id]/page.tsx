@@ -2,6 +2,9 @@ import { Grid } from "@mui/material";
 import { PaymentSummary } from "@/widgets/sessions/PaymentSummary";
 import { BookingSummary } from "@/widgets/sessions/BookingSummary";
 
+// Add revalidation for checkout page - 60 seconds
+export const revalidate = 60;
+
 export default async function CheckoutPage({
   params,
 }: {

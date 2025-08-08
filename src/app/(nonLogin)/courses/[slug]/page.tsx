@@ -8,6 +8,9 @@ import { CourseCommunity } from "@/widgets/courses/CourseCommunity";
 import { CourseFAQ } from "@/widgets/courses/CourseFAQ";
 import { getCourseDetails } from "@/app/actions/course";
 
+// Add revalidation for course detail page - 60 seconds
+export const revalidate = 60;
+
 export default async function CourseDetail({
   params,
 }: {

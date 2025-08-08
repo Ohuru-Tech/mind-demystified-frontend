@@ -5,6 +5,9 @@ import { LessonContent } from "@/widgets/courses/LessonContent";
 import { DocumentLesson } from "@/widgets/courses/DocumentLesson";
 import { NextLesson } from "@/models/course";
 
+// Add revalidation for lesson page - 60 seconds
+export const revalidate = 60;
+
 interface LessonPageProps {
   courseSlug: string;
   lessonId: string;

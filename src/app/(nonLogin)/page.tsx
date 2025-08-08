@@ -7,6 +7,9 @@ import { Testimonials } from "@/widgets/home/Testimonials";
 import { FAQ } from "@/widgets/FAQ";
 import { Metadata } from "next";
 
+// Add revalidation for home page - 60 seconds
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Mind Demystified - Holistic Mental Health & Wellness",
   description:

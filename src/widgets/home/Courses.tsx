@@ -13,6 +13,9 @@ import Link from "next/link";
 
 const courseAPIs = CourseAPIs();
 
+// Add revalidation for Courses component - 60 seconds
+export const revalidate = 60;
+
 export const getCourses = async () => {
   try {
     const response: CourseList[] = await courseAPIs.getFeaturedCourses();
