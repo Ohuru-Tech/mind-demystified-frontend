@@ -2,7 +2,7 @@ import axios from "axios";
 import { ErrorHandler } from "./errorHandler";
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: "https://mind-demystified-backend-0dd3e7300e77.herokuapp.com/api",
   timeout: 10000, // 10 second timeout
 });
 
