@@ -91,7 +91,7 @@ export const LoginModal = ({
       if (response.success) {
         showSuccess("Successfully signed in!");
         window.dispatchEvent(new Event("auth-state-changed"));
-        router.push(response.redirect_to || redirectUrl);
+        window.location.href = response.redirect_to || redirectUrl;
         onClose?.();
       } else {
         showError(response.error || "Failed to sign in with Google");

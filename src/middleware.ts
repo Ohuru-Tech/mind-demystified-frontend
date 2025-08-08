@@ -3,6 +3,8 @@ import { createSession, getSession } from "./app/lib/session";
 
 export async function middleware(request: NextRequest) {
   const session = await getSession();
+  const urlBase =
+    "https://mind-demystified-backend-0dd3e7300e77.herokuapp.com/api/";
 
   if (!session) {
     return NextResponse.redirect(
@@ -14,28 +16,22 @@ export async function middleware(request: NextRequest) {
   }
 
   if (session && session.access) {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}accounts/verify-token/`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.access}`,
-        },
-      }
-    );
+    const response = await fetch(`${urlBase}accounts/verify-token/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.access}`,
+      },
+    });
 
     if (response.status !== 200) {
-      const refreshResponse = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}accounts/refresh-token/`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ refresh_token: session.refresh }),
-        }
-      );
+      const refreshResponse = await fetch(`${urlBase}accounts/refresh-token/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ refresh_token: session.refresh }),
+      });
 
       if (refreshResponse.status === 200) {
         const refreshResponseData = await refreshResponse.json();
