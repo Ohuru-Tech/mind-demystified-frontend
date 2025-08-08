@@ -13,6 +13,8 @@ import Link from "next/link";
 import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 import { SessionPackage } from "@/models/session";
 
+export const revalidate = 60;
+
 export const TherapyPlans = async () => {
   const sessionAPIs = SessionsAPIs();
 
