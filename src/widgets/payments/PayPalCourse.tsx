@@ -19,7 +19,7 @@ export default function PayPalCourse({
 
   const initialOptions = {
     clientId:
-      "AW-6FKagqGdYC1cmVt8_btplikfiD1IeN2N-GObxT4pnZV4DUbWI6YPlywYXm99Rhi-D5RZEJUu2WPix",
+      "ATz11Ut9xSS6NRAqX16Rblc8okk2dzx4HEcWD9VY7xQ1JYbFUEeD9o-1mz6sPl5z88gjLY2mNwhQDLSE",
     enableFunding: "venmo",
     disableFunding: "",
     buyerCountry: "US",
