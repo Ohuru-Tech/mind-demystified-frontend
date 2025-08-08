@@ -52,6 +52,7 @@ export const FreeCallButton = ({
           setHasFreeCall(false);
           return;
         }
+        // No subscription found, continue checking
       } catch (error) {
         // No subscription found, continue checking
       }

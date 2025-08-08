@@ -89,6 +89,11 @@ export default function SessionDetailPage() {
   const fetchSubscribedPackages = async () => {
     try {
       const subscribedPackage = await getSubscribedPackages();
+      if (!subscribedPackage) {
+        // No user logged in or no subscription found, create a new one
+        await createSubscribedPackage(id as string);
+        return;
+      }
       if (subscribedPackage.paid && !subscribedPackage.completed) {
         router.push("/sessions");
         return;
@@ -100,7 +105,8 @@ export default function SessionDetailPage() {
         await createSubscribedPackage(id as string);
       }
     } catch (error) {
-      await createSubscribedPackage(id as string);
+      // If createSubscribedPackage fails (e.g., user not authenticated), handle silently
+      console.log("Error creating subscribed package:", error);
     }
   };
 

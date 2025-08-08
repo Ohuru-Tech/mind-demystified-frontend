@@ -33,7 +33,7 @@ export const getSubscribedPackages = async () => {
   const session = await getSession();
   const token = session?.access;
   if (!token) {
-    throw new Error("User not authenticated");
+    return null;
   }
   const response = await SessionsAPIs().getSubscribedPackages(token);
   return response;
@@ -151,7 +151,7 @@ export const getSessionSubscriptionDetail = async () => {
   const session = await getSession();
   const token = session?.access;
   if (!token) {
-    throw new Error("User not authenticated");
+    return null;
   }
   const response = await SessionsAPIs().getSessionSubscriptionDetail(token);
   return response;
@@ -257,7 +257,7 @@ export const getFreeCallDetails = async () => {
   const session = await getSession();
   const token = session?.access;
   if (!token) {
-    throw new Error("User not authenticated");
+    return null;
   }
   try {
     const response = await SessionsAPIs().getFreeCallDetails(token);

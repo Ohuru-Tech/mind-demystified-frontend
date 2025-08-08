@@ -126,46 +126,53 @@ export const CourseBookingSummary = ({
         </Stack>
       )}
       {course && <Typography variant="body2">{course?.byline}</Typography>}
-      <Typography variant="h5">
-        Make it a package and save{" "}
-        <Typography component={"span"} variant={"h5"} fontFamily={"monospace"}>
-          {bundle?.savings}
-        </Typography>{" "}
-        %
-      </Typography>
-      <Stack
-        direction={"row"}
-        spacing={"30px"}
-        sx={{
-          overflowX: "scroll",
-          overflowY: "visible",
-          marginTop: "20px !important",
-          paddingTop: "40px",
-          paddingBottom: "20px",
-        }}
-      >
-        {bundle &&
-          [...bundle?.courses, ...bundle?.courses].map((course, index) => {
-            return (
-              <CourseBundleCard
-                selectedPackage={selectedPackage}
-                course={course}
-                key={index}
-              />
-            );
-          })}
-      </Stack>
-      <Stack direction={"row"} spacing={"12px"}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => {
-            setSelectedPackage(!selectedPackage);
-          }}
-        >
-          {selectedPackage ? "Remove package" : "Add package"}
-        </Button>
-      </Stack>
+      {bundle && (
+        <>
+          <Typography variant="h5">
+            Make it a package and save{" "}
+            <Typography
+              component={"span"}
+              variant={"h5"}
+              fontFamily={"monospace"}
+            >
+              {bundle?.savings}
+            </Typography>{" "}
+            %
+          </Typography>
+          <Stack
+            direction={"row"}
+            spacing={"30px"}
+            sx={{
+              overflowX: "scroll",
+              overflowY: "visible",
+              marginTop: "20px !important",
+              paddingTop: "40px",
+              paddingBottom: "20px",
+            }}
+          >
+            {[...bundle?.courses, ...bundle?.courses].map((course, index) => {
+              return (
+                <CourseBundleCard
+                  selectedPackage={selectedPackage}
+                  course={course}
+                  key={index}
+                />
+              );
+            })}
+          </Stack>
+          <Stack direction={"row"} spacing={"12px"}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                setSelectedPackage(!selectedPackage);
+              }}
+            >
+              {selectedPackage ? "Remove package" : "Add package"}
+            </Button>
+          </Stack>
+        </>
+      )}
     </Stack>
   );
 };

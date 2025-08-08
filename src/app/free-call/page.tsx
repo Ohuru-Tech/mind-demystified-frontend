@@ -53,6 +53,8 @@ export default function FreeCallPage() {
         router.push("/sessions");
         return;
       }
+      // No subscription found, continue with free call booking
+      console.log("No subscription found, proceeding with free call booking");
     } catch (error) {
       // User doesn't have subscription, continue with free call booking
       console.log("No subscription found, proceeding with free call booking");

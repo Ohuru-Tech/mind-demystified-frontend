@@ -81,6 +81,11 @@ export default function SessionsPage() {
   const fetchSessionSubscriptionDetail = async () => {
     try {
       const sessionSubscriptionDetail = await getSessionSubscriptionDetail();
+      if (!sessionSubscriptionDetail) {
+        // No user logged in or no subscription found
+        setSessionSubscriptionDetail(null);
+        return;
+      }
       setSessionSubscriptionDetail(sessionSubscriptionDetail);
       const sessionDateTime = dayjs.tz(
         `${sessionSubscriptionDetail?.scheduled_session.session_date} ${sessionSubscriptionDetail?.scheduled_session.session_time}`,

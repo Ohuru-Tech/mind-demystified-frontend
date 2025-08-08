@@ -60,8 +60,18 @@ export default function ReschedulePage() {
   };
 
   const fetchSessionSubscriptionDetail = async () => {
-    const sessionSubscriptionDetail = await getSessionSubscriptionDetail();
-    setSessionSubscriptionDetail(sessionSubscriptionDetail);
+    try {
+      const sessionSubscriptionDetail = await getSessionSubscriptionDetail();
+      if (!sessionSubscriptionDetail) {
+        // No user logged in or no subscription found
+        setSessionSubscriptionDetail(null);
+        return;
+      }
+      setSessionSubscriptionDetail(sessionSubscriptionDetail);
+    } catch (error) {
+      // Handle error silently
+      setSessionSubscriptionDetail(null);
+    }
   };
 
   const handleReschedule = async () => {
@@ -85,11 +95,17 @@ export default function ReschedulePage() {
   const fetchSubscribedPackages = async () => {
     try {
       const subscribedPackage = await getSubscribedPackages();
+      if (!subscribedPackage) {
+        // No user logged in or no subscription found, create a new one
+        await createSubscribedPackage(id as string);
+        return;
+      }
       if (subscribedPackage.package.id.toString() !== (id as string)) {
         await createSubscribedPackage(id as string);
       }
     } catch (error) {
-      await createSubscribedPackage(id as string);
+      // If createSubscribedPackage fails (e.g., user not authenticated), handle silently
+      console.log("Error creating subscribed package:", error);
     }
   };
 

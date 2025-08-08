@@ -56,6 +56,10 @@ export default function FreeCallReschedulePage() {
         router.push("/sessions");
         return;
       }
+      // No subscription found, continue with free call rescheduling
+      console.log(
+        "No subscription found, proceeding with free call rescheduling"
+      );
     } catch (error) {
       // User doesn't have subscription, continue with free call rescheduling
       console.log(
