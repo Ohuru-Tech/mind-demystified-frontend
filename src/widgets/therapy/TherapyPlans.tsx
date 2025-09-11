@@ -1,4 +1,5 @@
-import { SessionsAPIs } from "@/utils/sessionsAPIs";
+"use client";
+
 import {
   alpha,
   Box,
@@ -12,21 +13,32 @@ import {
 import Link from "next/link";
 import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 import { SessionPackage } from "@/models/session";
+import { useEffect, useState } from "react";
+import { getSessionPackages } from "@/app/actions/session";
 
-export const revalidate = 60;
+export const TherapyPlans = () => {
+  const [sessionPackages, setSessionPackages] = useState<SessionPackage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export const TherapyPlans = async () => {
-  const sessionAPIs = SessionsAPIs();
+  useEffect(() => {
+    const fetchSessionPackages = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const packages = await getSessionPackages();
+        setSessionPackages(packages);
+      } catch (err) {
+        console.error("Failed to fetch session packages:", err);
+        setError("Failed to load session packages");
+        setSessionPackages([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Add error handling for API call
-  let sessionPackages: SessionPackage[] = [];
-  try {
-    sessionPackages = await sessionAPIs.getSessionPackages();
-  } catch (error) {
-    console.error("Failed to fetch session packages:", error);
-    // Return empty array to prevent page crash
-    sessionPackages = [];
-  }
+    fetchSessionPackages();
+  }, []);
 
   return (
     <Container
@@ -75,7 +87,50 @@ export const TherapyPlans = async () => {
         </Typography>
       </Stack>
 
-      {sessionPackages.length > 0 ? (
+      {loading ? (
+        // Show loading state
+        <Stack
+          direction={"column"}
+          spacing={"20px"}
+          mt={"100px"}
+          alignItems={"center"}
+          sx={{
+            padding: "40px",
+            backgroundColor: "white",
+            borderRadius: "20px",
+            border: "1px solid #E0E0E0",
+          }}
+        >
+          <Typography variant="h6" textAlign={"center"}>
+            Loading session packages...
+          </Typography>
+        </Stack>
+      ) : error ? (
+        // Show error state
+        <Stack
+          direction={"column"}
+          spacing={"20px"}
+          mt={"100px"}
+          alignItems={"center"}
+          sx={{
+            padding: "40px",
+            backgroundColor: "white",
+            borderRadius: "20px",
+            border: "1px solid #E0E0E0",
+          }}
+        >
+          <Typography variant="h6" textAlign={"center"}>
+            {error}
+          </Typography>
+          <Typography
+            variant="body2"
+            textAlign={"center"}
+            color="text.secondary"
+          >
+            Please try again later or contact us for assistance.
+          </Typography>
+        </Stack>
+      ) : sessionPackages.length > 0 ? (
         <Grid container spacing={"22px"} mt={"100px"}>
           {sessionPackages.map((sessionPackage) => (
             <Grid size={{ xs: 12, md: 6, lg: 4 }} key={sessionPackage.id}>

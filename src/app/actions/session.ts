@@ -293,3 +293,8 @@ export const rescheduleFreeCall = async (
   );
   return response;
 };
+
+export const getSessionPackages = async () => {
+  const response = await SessionsAPIs().getSessionPackages();
+  return response;
+};

@@ -55,7 +55,7 @@ export const Testimonials = async () => {
             direction={"row"}
             spacing={"16px"}
             sx={{
-              overflow: "scroll",
+              overflow: "hidden",
               width: "100%",
               position: "relative",
             }}
@@ -64,7 +64,7 @@ export const Testimonials = async () => {
               sx={{
                 display: "flex",
                 gap: "16px",
-                animation: "scroll 100s linear infinite",
+                animation: "scroll 50s linear infinite",
                 "&:hover": {
                   animationPlayState: "paused",
                 },
@@ -81,6 +81,12 @@ export const Testimonials = async () => {
               {testimonials.map((testimonial) => (
                 <TestimonialCard
                   key={testimonial.id}
+                  testimonial={testimonial}
+                />
+              ))}
+              {testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={`second-${testimonial.id}`}
                   testimonial={testimonial}
                 />
               ))}

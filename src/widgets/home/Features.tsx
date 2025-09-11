@@ -61,6 +61,7 @@ export const Features = () => {
           >
             <FeatureCard
               title="One-on-one guidance"
+              href="/therapy"
               description={
                 <>
                   Personalized support for
@@ -71,6 +72,7 @@ export const Features = () => {
             />
             <FeatureCard
               title="Courses and Certification"
+              href="/courses"
               description={
                 <>
                   Empower mind, body,
@@ -81,6 +83,7 @@ export const Features = () => {
             />
             <FeatureCard
               title="Community and Growth"
+              href="/courses"
               description={
                 <>
                   Connect, Share, and Grow

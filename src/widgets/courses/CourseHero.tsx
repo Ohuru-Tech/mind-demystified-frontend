@@ -26,7 +26,7 @@ export const CourseHero = ({
         alignItems={"flex-start"}
         spacing={"60px"}
       >
-        <Stack direction={"column"} spacing={"2px"}>
+        <Stack direction={"column"} spacing={"2px"} id="hero">
           <Typography
             variant="h6"
             color={"text.disabled"}
@@ -89,7 +89,6 @@ export const CourseHero = ({
             <Button
               variant="contained"
               color="primary"
-              id="hero"
               component={Link}
               href={
                 course.enrolled

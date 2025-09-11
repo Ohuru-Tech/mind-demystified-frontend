@@ -1,19 +1,24 @@
 import { Card, CardContent, Paper, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 
 type FeatureCardProps = {
   title: string;
   description: React.ReactNode;
   image: string;
+  href: string;
 };
 
 export const FeatureCard = ({
   title,
   description,
   image,
+  href,
 }: FeatureCardProps) => {
   return (
     <Stack
       direction={"column"}
+      component={Link}
+      href={href}
       spacing={2}
       sx={{
         cursor: "pointer",
@@ -27,6 +32,8 @@ export const FeatureCard = ({
             boxShadow: "0 8px 16px rgba(0,0,0,0.1)",
           },
         },
+        textTransform: "none",
+        textDecoration: "none",
       }}
     >
       <Stack
