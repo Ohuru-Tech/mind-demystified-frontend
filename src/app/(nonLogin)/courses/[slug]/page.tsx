@@ -52,8 +52,8 @@ export default async function CourseDetail({
         </Tabs> */}
         <CourseAbout course={course} />
         <CourseModules course={course} />
-        <CourseTestimonials />
       </Container>
+      <CourseTestimonials />
       <CourseCommunity />
       <CourseFAQ />
     </Box>

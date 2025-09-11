@@ -1,7 +1,7 @@
 import { Testimonial } from "@/models/testimonial";
 import { TestimonialsAPIs } from "@/utils/testimonialsAPIs";
 import { alpha, Box, Container, Stack, Typography } from "@mui/material";
-import { TestimonialCard } from "../home/TestimonialCard";
+import { TestimonialCard } from "@/widgets/home/TestimonialCard";
 
 const testimonialsAPIs = TestimonialsAPIs();
 
@@ -12,59 +12,60 @@ export const CourseTestimonials = async () => {
     const testimonialResults = await testimonialsAPIs.getTestimonials(10, 0);
     testimonials = testimonialResults.results;
   } catch (error) {
-    console.error("Failed to fetch course testimonials:", error);
+    console.error("Failed to fetch testimonials:", error);
     testimonials = [];
   }
 
   return (
-    <Stack
-      id="testimonials"
-      marginTop={"212px"}
-      justifyContent={"center"}
-      spacing={"50px"}
-      width={"100%"}
+    <Container
+      maxWidth={"xl"}
+      id={"testimonials"}
+      sx={{
+        position: "relative",
+        paddingLeft: "0px !important",
+        paddingRight: "0px !important",
+        marginTop: "220px",
+      }}
     >
-      <Typography variant="h4" textAlign={"center"}>
-        Testimonials
-      </Typography>
-      <Container
-        maxWidth={"xl"}
+      <Box
         sx={{
-          position: "relative",
-          paddingLeft: "0px !important",
-          paddingRight: "0px !important",
+          width: "253px",
+          height: "253px",
+          position: "absolute",
+          left: "0px",
+          top: "0px",
+          backgroundColor: alpha("#F59B84", 0.5),
+          filter: "blur(150px)",
+          borderRadius: "50%",
+          zIndex: 0,
         }}
+      />
+      <Stack
+        direction={"column"}
+        spacing={"120px"}
+        textAlign={"center"}
+        sx={{ position: "relative", width: "100%", zIndex: 1 }}
       >
-        <Box
-          sx={{
-            width: "253px",
-            height: "253px",
-            position: "absolute",
-            left: "0px",
-            top: "0px",
-            backgroundColor: alpha("#F59B84", 0.5),
-            filter: "blur(150px)",
-            borderRadius: "50%",
-            zIndex: 0,
-          }}
-        />
+        <Stack direction={"column"} spacing={"10px"}>
+          <Typography variant="h2">Testimonials</Typography>
+          {/* <Typography variant="body1">Real Stories, Real Shifts</Typography> */}
+        </Stack>
 
         {testimonials.length > 0 ? (
           <Stack
             direction={"row"}
             spacing={"16px"}
             sx={{
-              overflow: "scroll",
+              overflow: "hidden",
               width: "100%",
               position: "relative",
-              zIndex: 1,
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 gap: "16px",
-                animation: "scroll 100s linear infinite",
+                animation: "scroll 50s linear infinite",
                 "&:hover": {
                   animationPlayState: "paused",
                 },
@@ -84,6 +85,12 @@ export const CourseTestimonials = async () => {
                   testimonial={testimonial}
                 />
               ))}
+              {testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={`second-${testimonial.id}`}
+                  testimonial={testimonial}
+                />
+              ))}
             </Box>
           </Stack>
         ) : (
@@ -96,8 +103,6 @@ export const CourseTestimonials = async () => {
               backgroundColor: "white",
               borderRadius: "20px",
               border: "1px solid #E0E0E0",
-              position: "relative",
-              zIndex: 1,
             }}
           >
             <Typography variant="h6" textAlign={"center"}>
@@ -112,7 +117,7 @@ export const CourseTestimonials = async () => {
             </Typography>
           </Stack>
         )}
-      </Container>
-    </Stack>
+      </Stack>
+    </Container>
   );
 };
