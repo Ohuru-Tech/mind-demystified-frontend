@@ -19,8 +19,8 @@ export const Hero = () => {
         </Typography>
         <Box sx={{ width: { xs: "100%", md: "60%" } }}>
           <Typography variant="body1" textAlign={"center"}>
-            Healing the mind, body, and spirit—one breath at a time through
-            therapy sessions and certification courses
+            Healing the mind, body, and spirit—learn to use techniques via
+            courses and become certified practitioners
           </Typography>
         </Box>
       </Stack>
