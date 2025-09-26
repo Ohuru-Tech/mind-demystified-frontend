@@ -20,7 +20,7 @@ export default function About() {
       <WhyExist />
       <CoreValues />
       <MeetFounder />
-      <MeetTeam />
+      {/* <MeetTeam /> */}
       <AboutQuote />
     </Box>
   );
