@@ -7,7 +7,7 @@ export const CourseAbout = ({ course }: { course: CourseDetail }) => {
     <>
       <Stack direction={"column"} mt={"60px"} alignItems={"center"}>
         <Typography variant="h4" component={"h2"}>
-          What You'll Learn
+          What You'll Learn ?
         </Typography>
         <Grid container marginTop={"50px"} rowGap={"30px"}>
           {course.outcomes.map((outcome) => {
@@ -29,13 +29,8 @@ export const CourseAbout = ({ course }: { course: CourseDetail }) => {
           })}
         </Grid>
       </Stack>
-      <Typography
-        variant="h5"
-        textAlign={"center"}
-        color={"text.secondary"}
-        mt={6}
-      >
-        Who is this for
+      <Typography variant="h4" component={"h2"}>
+        Who is this for ?
       </Typography>
       <Grid container marginTop={"50px"} rowGap={"30px"}>
         {course.who_for?.map((outcome) => {
