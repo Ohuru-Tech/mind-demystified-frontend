@@ -71,6 +71,7 @@ export type CourseDetail = CourseList & {
   num_assessments: number;
   enrolled?: boolean;
   duration: string;
+  who_for?: { description: string; order: number }[];
 };
 
 export type CourseAccessDetail = {

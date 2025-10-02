@@ -29,6 +29,33 @@ export const CourseAbout = ({ course }: { course: CourseDetail }) => {
           })}
         </Grid>
       </Stack>
+      <Typography
+        variant="h5"
+        textAlign={"center"}
+        color={"text.secondary"}
+        mt={6}
+      >
+        Who is this for
+      </Typography>
+      <Grid container marginTop={"50px"} rowGap={"30px"}>
+        {course.who_for?.map((outcome) => {
+          return (
+            <Grid size={{ lg: 6, md: 12 }} key={outcome.order}>
+              <Stack direction={"row"} spacing={"20px"} alignItems={"center"}>
+                <Image
+                  src={"/check.png"}
+                  height={30}
+                  width={30}
+                  alt={"Check"}
+                />
+                <Typography variant="body2" color={"text.secondary"}>
+                  {outcome.description}
+                </Typography>
+              </Stack>
+            </Grid>
+          );
+        })}
+      </Grid>
       <Stack
         direction={"column"}
         alignItems={"center"}
