@@ -29,7 +29,7 @@ export const CourseAbout = ({ course }: { course: CourseDetail }) => {
           })}
         </Grid>
       </Stack>
-      <Typography variant="h4" component={"h2"}>
+      <Typography variant="h4" component={"h2"} mt={6} textAlign={"center"}>
         Who is this for ?
       </Typography>
       <Grid container marginTop={"50px"} rowGap={"30px"}>
