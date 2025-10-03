@@ -9,7 +9,7 @@ export const Testimonials = async () => {
   let testimonials: Testimonial[] = [];
 
   try {
-    const testimonialResults = await testimonialsAPIs.getTestimonials(10, 0);
+    const testimonialResults = await testimonialsAPIs.getTestimonials(20, 0);
     testimonials = testimonialResults.results;
   } catch (error) {
     console.error("Failed to fetch testimonials:", error);
