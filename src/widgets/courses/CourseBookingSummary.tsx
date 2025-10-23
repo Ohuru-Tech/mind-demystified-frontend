@@ -139,6 +139,11 @@ export const CourseBookingSummary = ({
             </Typography>{" "}
             %
           </Typography>
+          {bundle?.description && (
+            <Typography sx={{ color: "primary.main" }} variant="body2">
+              {bundle?.description}
+            </Typography>
+          )}
           <Stack
             direction={"row"}
             spacing={"30px"}
@@ -150,7 +155,7 @@ export const CourseBookingSummary = ({
               paddingBottom: "20px",
             }}
           >
-            {[...bundle?.courses, ...bundle?.courses].map((course, index) => {
+            {[...bundle?.courses].map((course, index) => {
               return (
                 <CourseBundleCard
                   selectedPackage={selectedPackage}

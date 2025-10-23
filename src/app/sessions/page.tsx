@@ -116,9 +116,6 @@ export default function SessionsPage() {
     } catch (error) {
       // Don't automatically show therapy plans if user has no subscription
       // They might have a free call instead
-      console.log(
-        "No session subscription found, but user might have free call"
-      );
       setSessionSubscriptionDetail(null);
     }
   };
@@ -129,12 +126,7 @@ export default function SessionsPage() {
 
   const fetchFreeCallDetails = async () => {
     try {
-      console.log("fetching free call details");
       const details = await getFreeCallDetails();
-      console.log("free call details:", details);
-      if (details) {
-        console.log("free call details keys:", Object.keys(details));
-      }
 
       // If no free call details returned, set to null
       if (!details) {
@@ -143,11 +135,7 @@ export default function SessionsPage() {
       }
 
       // Check if free call time has passed (more than 1 hour after call time)
-      if (details && !details.completed) {
-        console.log(
-          "Processing free call details, completed:",
-          details.completed
-        );
+      if (details) {
         const callDateTime = dayjs.tz(
           `${details.session_date} ${details.session_time}`,
           "YYYY-MM-DD HH:mm:ss",
@@ -158,7 +146,6 @@ export default function SessionsPage() {
 
         // If more than 1 hour has passed since the call time, don't show it
         if (now.isAfter(oneHourAfter)) {
-          console.log("Free call time has passed, hiding it");
           setFreeCallDetails(null);
           return;
         }
@@ -170,19 +157,11 @@ export default function SessionsPage() {
           null,
           "[]"
         );
-        console.log("Free call happening check:", {
-          callDateTime: callDateTime.format(),
-          now: now.format(),
-          oneHourAfter: oneHourAfter.format(),
-          isHappening,
-        });
         setIsFreeCallHappening(isHappening);
       }
 
-      console.log("Setting free call details:", details);
       setFreeCallDetails(details);
     } catch (error) {
-      console.error("Error fetching free call details:", error);
       // Free call doesn't exist or error occurred
       setFreeCallDetails(null);
     }
@@ -203,37 +182,18 @@ export default function SessionsPage() {
   };
 
   useEffect(() => {
-    console.log("useEffect triggered - fetching data");
     fetchProfile();
     fetchSessionSubscriptionDetail();
     fetchFreeCallDetails();
   }, []);
 
-  useEffect(() => {
-    console.log("freeCallDetails state changed:", freeCallDetails);
-  }, [freeCallDetails]);
-
-  console.log("loadSessionOptions check:", loadSessionOptions);
   if (loadSessionOptions) {
-    console.log("Returning TherapyPlansSessionClient");
     return (
       <Container maxWidth={"lg"} sx={{ paddingTop: "120px" }}>
         <TherapyPlansSessionClient />
       </Container>
     );
   }
-
-  console.log("=== COMPONENT RENDER ===");
-  console.log(
-    "Rendering free call section, freeCallDetails:",
-    freeCallDetails,
-    "Type:",
-    typeof freeCallDetails
-  );
-  console.log(
-    "About to render free call section, condition check:",
-    !!freeCallDetails
-  );
 
   return (
     <Container maxWidth={"lg"} sx={{ paddingTop: "120px" }}>

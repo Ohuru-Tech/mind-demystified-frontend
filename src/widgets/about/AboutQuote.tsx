@@ -1,4 +1,4 @@
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Link } from "@mui/material";
 import { Stack } from "@mui/material";
 
 export const AboutQuote = () => {
@@ -52,12 +52,16 @@ export const AboutQuote = () => {
           <Button
             sx={{ width: { xs: "90%", md: "auto", lg: "auto" } }}
             variant="contained"
+            component={Link}
+            href="/therapy"
           >
             Explore Therapy
           </Button>
           <Button
             sx={{ width: { xs: "90%", md: "auto", lg: "auto" } }}
             variant="outlined"
+            component={Link}
+            href="/courses"
           >
             Explore Courses
           </Button>

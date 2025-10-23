@@ -24,8 +24,9 @@ export default function CourseCheckoutPage() {
         size={{ xs: 12, md: 6 }}
         sx={{
           paddingLeft: "40px",
-          height: "98vh",
+          height: "112vh",
           paddingRight: "52px",
+          paddingBottom: "100px",
           position: "sticky",
           top: 0,
         }}

@@ -1,4 +1,5 @@
 import { Stack, Typography, Button, Box, Container } from "@mui/material";
+import { FreeCallButton } from "../common/FreeCallButton";
 
 export const Hero = () => {
   return (
@@ -34,7 +35,7 @@ export const Hero = () => {
           </Box>
         </Stack>
         <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
-          <Button variant="contained">Book a Call</Button>
+          <FreeCallButton variant="contained" text="Book a free Call" />
         </Stack>
       </Stack>
     </Container>

@@ -224,7 +224,7 @@ export default function Footer() {
                 variant="h6"
                 sx={{ fontWeight: 700, mb: 2, color: "#FAF9F6", fontSize: 18 }}
               >
-                Connect with us
+                Sign up for our newsletter
               </Typography>
               <NewsletterSubscription
                 title=""
@@ -265,7 +265,13 @@ export default function Footer() {
               />
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 700, mb: 2, color: "#FAF9F6", fontSize: 18 }}
+                sx={{
+                  fontWeight: 700,
+                  mb: 2,
+                  mt: 2,
+                  color: "#FAF9F6",
+                  fontSize: 18,
+                }}
               >
                 Follow us
               </Typography>
