@@ -290,7 +290,7 @@ export const TherapyPlansSessionClient = () => {
           </Typography>
         </Stack>
       )}
-      <Stack
+      {/* <Stack
         direction={"column"}
         spacing={"40px"}
         mt={"54px"}
@@ -304,7 +304,7 @@ export const TherapyPlansSessionClient = () => {
           text="Book a free 15 min call"
           sx={{ width: { xs: "90%", md: "30%", lg: "30%" } }}
         />
-      </Stack>
+      </Stack> */}
     </Container>
   );
 };

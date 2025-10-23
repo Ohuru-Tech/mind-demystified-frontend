@@ -164,7 +164,6 @@ export default function SessionsPage() {
     } catch (error) {
       // Free call doesn't exist or error occurred
       setFreeCallDetails(null);
-      setLoadSessionOptions(true);
     }
   };
 
@@ -188,7 +187,7 @@ export default function SessionsPage() {
     fetchFreeCallDetails();
   }, []);
 
-  if (loadSessionOptions) {
+  if (loadSessionOptions || (!freeCallDetails && !sessionSubscriptionDetail)) {
     return (
       <Container maxWidth={"lg"} sx={{ paddingTop: "120px" }}>
         <TherapyPlansSessionClient />
