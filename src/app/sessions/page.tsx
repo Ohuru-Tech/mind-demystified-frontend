@@ -164,6 +164,7 @@ export default function SessionsPage() {
     } catch (error) {
       // Free call doesn't exist or error occurred
       setFreeCallDetails(null);
+      setLoadSessionOptions(true);
     }
   };
 

@@ -39,72 +39,113 @@ export const CourseBookingSummary = ({
   }, [courseSlug]);
 
   return (
-    <Stack direction={"column"} spacing={"24px"} mt={"40px"}>
+    <Stack
+      direction={"column"}
+      spacing={{ xs: "16px", md: "24px" }}
+      mt={{ xs: "20px", md: "40px" }}
+      mb={{ xs: "20px", md: "40px" }}
+    >
       <Typography variant="h4">Checkout</Typography>
       {course && (
         <Stack
-          direction={"row"}
-          spacing={"30px"}
-          padding={"20px"}
-          width={"fit-content"}
+          direction={{ xs: "column", md: "row" }}
+          spacing={{ xs: "16px", md: "30px" }}
+          padding={{ xs: "16px", md: "20px" }}
+          width={"100%"}
           sx={{
             backgroundColor: "white",
             border: "1px solid #E0E0E0",
             borderRadius: "12px",
           }}
         >
-          <Box
-            sx={{
-              width: "80px",
-              height: "80px",
-              borderRadius: "12px",
-              border: "1px solid #E0E0E0",
-              overflow: "hidden",
-            }}
+          <Stack
+            direction={"row"}
+            spacing={{ xs: "12px", md: "16px" }}
+            alignItems={"flex-start"}
           >
-            <Image
-              src={course?.image}
-              alt={course?.title}
-              height={80}
-              width={80}
-              style={{
-                objectFit: "cover",
-                objectPosition: "center",
+            <Box
+              sx={{
+                width: { xs: "60px", md: "80px" },
+                height: { xs: "60px", md: "80px" },
+                borderRadius: "12px",
+                border: "1px solid #E0E0E0",
+                overflow: "hidden",
+                flexShrink: 0,
               }}
-            />
-          </Box>
-          <Stack direction={"column"} spacing={"8px"}>
-            <Typography variant="h6">{course?.title}</Typography>
-            <Stack direction={"row"} spacing={"4px"}>
-              <Stack direction={"row"} spacing={"-16px"}>
-                {course.instructors.map((instructor) => {
-                  return <Avatar src={instructor.image} key={instructor.id} />;
-                })}
-              </Stack>
-              <Stack direction={"row"} spacing={"4px"} alignItems={"center"}>
-                {course.instructors.map((instructor, index) => {
-                  return (
-                    <Typography variant={"subtitle2"} key={instructor.id}>
-                      {instructor.name.split(" ")[0]}
-                      {index !== course.instructors.length - 1 && ","}
-                    </Typography>
-                  );
-                })}
+            >
+              <Image
+                src={course?.image}
+                alt={course?.title}
+                height={80}
+                width={80}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
+            </Box>
+            <Stack direction={"column"} spacing={"8px"} sx={{ flex: 1 }}>
+              <Typography variant="h6">{course?.title}</Typography>
+              <Stack direction={"row"} spacing={"4px"} flexWrap="wrap">
+                <Stack direction={"row"} spacing={"-16px"}>
+                  {course.instructors.map((instructor) => {
+                    return (
+                      <Avatar
+                        src={instructor.image}
+                        key={instructor.id}
+                        sx={{
+                          width: { xs: 24, md: 32 },
+                          height: { xs: 24, md: 32 },
+                        }}
+                      />
+                    );
+                  })}
+                </Stack>
+                <Stack
+                  direction={"row"}
+                  spacing={"4px"}
+                  alignItems={"center"}
+                  flexWrap="wrap"
+                >
+                  {course.instructors.map((instructor, index) => {
+                    return (
+                      <Typography variant={"subtitle2"} key={instructor.id}>
+                        {instructor.name.split(" ")[0]}
+                        {index !== course.instructors.length - 1 && ","}
+                      </Typography>
+                    );
+                  })}
+                </Stack>
               </Stack>
             </Stack>
           </Stack>
-          <Divider orientation="vertical" flexItem />
-          <Stack direction={"column"} justifyContent={"space-between"} p={1}>
+
+          <Divider
+            orientation="vertical"
+            flexItem
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          />
+          <Divider
+            orientation="horizontal"
+            sx={{
+              display: { xs: "block", md: "none" },
+              width: "100%",
+            }}
+          />
+
+          <Stack direction={"column"} spacing={"8px"} p={1}>
             <Stack
               direction={"row"}
               spacing={"4px"}
-              justifyContent={"flex-start"}
+              justifyContent={{ xs: "flex-start", md: "flex-start" }}
               alignItems={"center"}
             >
               <Icon
                 icon="flowbite:clock-outline"
-                height={25}
-                width={25}
+                height={20}
+                width={20}
                 color={"#323232"}
               />
               <Typography variant={"body2"} color={"primary.main"}>
@@ -114,10 +155,10 @@ export const CourseBookingSummary = ({
             <Stack
               direction={"row"}
               spacing={"4px"}
-              justifyContent={"flex-start"}
+              justifyContent={{ xs: "flex-start", md: "flex-start" }}
               alignItems={"center"}
             >
-              <Icon icon="streamline-plump:module" height={25} width={25} />
+              <Icon icon="streamline-plump:module" height={20} width={20} />
               <Typography variant={"body2"} color={"primary.main"}>
                 {course?.modules.length} modules
               </Typography>
@@ -146,13 +187,29 @@ export const CourseBookingSummary = ({
           )}
           <Stack
             direction={"row"}
-            spacing={"30px"}
+            spacing={{ xs: "16px", md: "30px" }}
             sx={{
-              overflowX: "scroll",
+              overflowX: "auto",
               overflowY: "visible",
               marginTop: "20px !important",
-              paddingTop: "40px",
+              paddingTop: { xs: "30px", md: "40px" },
               paddingBottom: "20px",
+              paddingLeft: { xs: "0px", md: "0px" },
+              paddingRight: { xs: "0px", md: "0px" },
+              "&::-webkit-scrollbar": {
+                height: "6px",
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "#f1f1f1",
+                borderRadius: "3px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#c1c1c1",
+                borderRadius: "3px",
+              },
+              "&::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: "#a8a8a8",
+              },
             }}
           >
             {[...bundle?.courses].map((course, index) => {
@@ -165,12 +222,25 @@ export const CourseBookingSummary = ({
               );
             })}
           </Stack>
-          <Stack direction={"row"} spacing={"12px"}>
+          <Stack
+            direction={"row"}
+            spacing={"12px"}
+            justifyContent={{ xs: "center", md: "flex-start" }}
+            sx={{
+              mt: { xs: "12px", md: "16px" },
+              position: "relative",
+              zIndex: 1,
+            }}
+          >
             <Button
               variant="contained"
               color="primary"
               onClick={() => {
                 setSelectedPackage(!selectedPackage);
+              }}
+              sx={{
+                padding: { xs: "8px 16px", md: "10px 20px" },
+                minWidth: { xs: "140px", md: "160px" },
               }}
             >
               {selectedPackage ? "Remove package" : "Add package"}

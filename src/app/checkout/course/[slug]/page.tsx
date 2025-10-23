@@ -23,11 +23,11 @@ export default function CourseCheckoutPage() {
       <Grid
         size={{ xs: 12, md: 6 }}
         sx={{
-          paddingLeft: "40px",
-          height: "112vh",
-          paddingRight: "52px",
-          paddingBottom: "100px",
-          position: "sticky",
+          paddingLeft: { xs: "20px", md: "40px" },
+          height: { xs: "auto", md: "112vh" },
+          paddingRight: { xs: "20px", md: "52px" },
+          paddingBottom: { xs: "20px", md: "100px" },
+          position: { xs: "static", md: "sticky" },
           top: 0,
         }}
       >
@@ -41,11 +41,16 @@ export default function CourseCheckoutPage() {
         size={{ xs: 12, md: 6 }}
         sx={{
           backgroundColor: "white",
-          borderTopLeftRadius: "12px",
-          borderBottomLeftRadius: "12px",
-          paddingRight: "52px",
-          paddingLeft: "40px",
+          borderTopLeftRadius: { xs: "0px", md: "12px" },
+          borderBottomLeftRadius: { xs: "0px", md: "12px" },
+          borderTopRightRadius: { xs: "12px", md: "0px" },
+          borderBottomRightRadius: { xs: "12px", md: "0px" },
+          paddingRight: { xs: "20px", md: "52px" },
+          paddingLeft: { xs: "20px", md: "40px" },
+          paddingTop: { xs: "20px", md: "0px" },
+          paddingBottom: { xs: "20px", md: "0px" },
           filter: "drop-shadow(0px 9px 52px rgba(0, 0, 0, 0.1))",
+          marginTop: { xs: "20px", md: "0px" },
         }}
       >
         <CoursePaymentSummary
