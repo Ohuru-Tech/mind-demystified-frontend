@@ -37,22 +37,16 @@ export default async function AccessLayout(props: {
   const course = await getCourseAccessDetail(courseSlug);
 
   return (
-    <html lang={"en"}>
-      <body style={{ backgroundColor: "#FEFBF5" }}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <SnackbarProvider>
-              <MindDemystifiedNavBar elevation />
-              <CourseAccessDrawer course={course} />
-              <Box
-                sx={{ marginTop: "100px", marginLeft: { xs: 0, lg: "390px" } }}
-              >
-                {children}
-              </Box>
-            </SnackbarProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          <MindDemystifiedNavBar elevation />
+          <CourseAccessDrawer course={course} />
+          <Box sx={{ marginTop: "100px", marginLeft: { xs: 0, lg: "390px" } }}>
+            {children}
+          </Box>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

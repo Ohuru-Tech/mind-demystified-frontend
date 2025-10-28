@@ -14,14 +14,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props;
 
   return (
-    <html lang={"en"}>
-      <body style={{ backgroundColor: "#FEFBF5" }}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <SnackbarProvider>{children}</SnackbarProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>{children}</SnackbarProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

@@ -17,17 +17,13 @@ export default function FreeCallLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={"en"}>
-      <body style={{ backgroundColor: "#FEFBF5" }}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <SnackbarProvider>
-              <MindDemystifiedNavBar elevation />
-              {children}
-            </SnackbarProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          <MindDemystifiedNavBar elevation />
+          {children}
+        </SnackbarProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

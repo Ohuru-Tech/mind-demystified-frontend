@@ -38,49 +38,41 @@ export default function AccessLayout(props: { children: ReactNode }) {
 
   if (loading) {
     return (
-      <html lang={"en"}>
-        <body style={{ backgroundColor: "#FEFBF5" }}>
-          <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>
-              <SnackbarProvider>
-                <MindDemystifiedNavBar elevation />
-                <Box>Loading...</Box>
-              </SnackbarProvider>
-            </ThemeProvider>
-          </AppRouterCacheProvider>
-        </body>
-      </html>
+      <AppRouterCacheProvider>
+        <ThemeProvider theme={theme}>
+          <SnackbarProvider>
+            <MindDemystifiedNavBar elevation />
+            <Box>Loading...</Box>
+          </SnackbarProvider>
+        </ThemeProvider>
+      </AppRouterCacheProvider>
     );
   }
 
   return (
-    <html lang={"en"}>
-      <body style={{ backgroundColor: "#FEFBF5" }}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <SnackbarProvider>
-              {module && (
-                <LessonAccessDrawer
-                  module={module}
-                  courseSlug={courseSlug}
-                  expanded={expanded}
-                  onExpand={() => setExpanded(true)}
-                  onCollapse={() => setExpanded(false)}
-                />
-              )}
-              <MindDemystifiedNavBar elevation />
-              <Box
-                sx={{
-                  marginTop: "100px",
-                  marginLeft: { xs: 0, lg: expanded ? "390px" : "60px" },
-                }}
-              >
-                {children}
-              </Box>
-            </SnackbarProvider>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <AppRouterCacheProvider>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          {module && (
+            <LessonAccessDrawer
+              module={module}
+              courseSlug={courseSlug}
+              expanded={expanded}
+              onExpand={() => setExpanded(true)}
+              onCollapse={() => setExpanded(false)}
+            />
+          )}
+          <MindDemystifiedNavBar elevation />
+          <Box
+            sx={{
+              marginTop: "100px",
+              marginLeft: { xs: 0, lg: expanded ? "390px" : "60px" },
+            }}
+          >
+            {children}
+          </Box>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }
