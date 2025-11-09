@@ -33,8 +33,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             fbq('track', 'PageView');
           `}
         </Script>
-      </head>
-      <body style={{ backgroundColor: "#FEFBF5" }}>
         <noscript>
           <img
             height="1"
@@ -44,8 +42,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
             alt=""
           />
         </noscript>
-        {children}
-      </body>
+      </head>
+      <body style={{ backgroundColor: "#FEFBF5" }}>{children}</body>
     </html>
   );
 }
