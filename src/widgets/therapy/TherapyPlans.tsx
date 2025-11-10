@@ -11,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 import { SessionPackage } from "@/models/session";
 import { useEffect, useState } from "react";
 import { getSessionPackages } from "@/app/actions/session";
@@ -284,22 +283,6 @@ export const TherapyPlans = () => {
           </Typography>
         </Stack>
       )}
-
-      <Stack
-        direction={"column"}
-        spacing={"40px"}
-        mt={"54px"}
-        alignItems={"center"}
-      >
-        <Typography variant="h5" textAlign={"center"}>
-          Or
-        </Typography>
-        <FreeCallButton
-          variant="outlined"
-          text="Book a free 15 min call"
-          sx={{ width: { xs: "90%", md: "30%", lg: "30%" } }}
-        />
-      </Stack>
     </Container>
   );
 };

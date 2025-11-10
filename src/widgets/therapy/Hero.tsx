@@ -1,5 +1,4 @@
 import { Stack, Typography, Box, Container, alpha } from "@mui/material";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const Hero = () => {
   return (
@@ -49,12 +48,6 @@ export const Hero = () => {
             Sanjeev Verma
           </Typography>
         </Stack>
-        <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
-          <FreeCallButton variant="contained" text="Book a free Call" />
-        </Stack>
-        {/* <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
-          <Button variant="contained">Book a free Call</Button>
-        </Stack> */}
       </Stack>
     </Container>
   );

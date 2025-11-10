@@ -19,7 +19,6 @@ import { SessionSubscriptionDetail } from "@/models/session";
 import { SessionTracking } from "@/widgets/sessions/SessionTracking";
 import { SessionSummary } from "@/widgets/sessions/SessionSummary";
 import { FreeCallSummary } from "@/widgets/sessions/FreeCallSummary";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 import { Profile } from "@/models/profile";
 import { getProfile } from "../actions/profile";
 import { getFreeCallDetails } from "../actions/session";
@@ -238,22 +237,7 @@ export default function SessionsPage() {
             </Stack>
           </Stack>
         </Box>
-      ) : (
-        !sessionSubscriptionDetail && (
-          <Box sx={{ mt: 4, mb: 4 }}>
-            <Stack direction={"column"} spacing={2} alignItems={"center"}>
-              <FreeCallButton
-                variant="contained"
-                size="large"
-                text="Book Free Call"
-                sx={{ mt: 2 }}
-                simple={false}
-                showPackages={true}
-              />
-            </Stack>
-          </Box>
-        )
-      )}
+      ) : null}
 
       {/* Session Section */}
       {sessionSubscriptionDetail ? (

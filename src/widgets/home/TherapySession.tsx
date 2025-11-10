@@ -7,7 +7,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 import Link from "next/link";
 
 export const TherapySession = () => {
@@ -293,7 +292,6 @@ export const TherapySession = () => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <FreeCallButton variant="contained" text="Book a Call" />
             <Button LinkComponent={Link} href="/therapy" variant="outlined">
               See More
             </Button>

@@ -1,6 +1,5 @@
 import { Stack, Typography, Button, Box } from "@mui/material";
 import Link from "next/link";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const Hero = () => {
   return (
@@ -25,7 +24,6 @@ export const Hero = () => {
         </Box>
       </Stack>
       <Stack direction={"row"} spacing={"16px"} alignItems={"center"}>
-        <FreeCallButton variant="contained" text="Book a Call" />
         <Button variant="outlined" component={Link} href="/courses">
           Explore Courses
         </Button>

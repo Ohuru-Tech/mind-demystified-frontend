@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
-import { FreeCallButton } from "@/widgets/common/FreeCallButton";
 
 export const TherapyQuote = () => {
   return (
@@ -37,9 +36,6 @@ export const TherapyQuote = () => {
             support you, ask questions to explore your needs deeply, and
             experience a taste of the tranquility that awaits.
           </Typography>
-        </Stack>
-        <Stack direction={"row"} spacing={"22px"} justifyContent={"center"}>
-          <FreeCallButton variant="contained" text="Book a free consultation" />
         </Stack>
       </Stack>
     </Stack>
