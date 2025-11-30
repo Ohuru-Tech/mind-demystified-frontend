@@ -61,7 +61,7 @@ export const Features = () => {
           >
             <FeatureCard
               title="One-on-one guidance"
-              href="/therapy"
+              href="/transformation"
               description={
                 <>
                   Personalized support for

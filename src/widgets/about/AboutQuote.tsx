@@ -53,9 +53,9 @@ export const AboutQuote = () => {
             sx={{ width: { xs: "90%", md: "auto", lg: "auto" } }}
             variant="contained"
             component={Link}
-            href="/therapy"
+            href="/transformation"
           >
-            Explore Therapy
+            Explore Transformation
           </Button>
           <Button
             sx={{ width: { xs: "90%", md: "auto", lg: "auto" } }}

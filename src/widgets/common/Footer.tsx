@@ -178,7 +178,7 @@ export default function Footer() {
               <Typography
                 variant="body2"
                 component="a"
-                href="/therapy"
+                href="/transformation"
                 sx={{
                   color: "#FAF9F6",
                   textDecoration: "none",
@@ -186,7 +186,7 @@ export default function Footer() {
                   "&:hover": { textDecoration: "underline" },
                 }}
               >
-                Therapy sessions
+                Transformation sessions
               </Typography>
               <Typography
                 variant="body2"

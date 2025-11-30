@@ -53,7 +53,7 @@ export const TherapySession = () => {
         sx={{ position: "relative", width: "100%", zIndex: 1 }}
       >
         <Stack direction={"column"} spacing={"10px"}>
-          <Typography variant="h2">Vedic Mind & Heart Therapy</Typography>
+          <Typography variant="h2">Vedic Mind & Heart Balance</Typography>
           <Typography variant="body1">
             One-on-one sessions for your every need.
           </Typography>
@@ -198,7 +198,8 @@ export const TherapySession = () => {
                   alignItems={"center"}
                 >
                   <Typography variant={"body1"} color={"primary.main"}>
-                    Relationship
+                    Healthy <br />
+                    Relationships
                   </Typography>
                 </Stack>
               </Card>
@@ -292,7 +293,11 @@ export const TherapySession = () => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Button LinkComponent={Link} href="/therapy" variant="outlined">
+            <Button
+              LinkComponent={Link}
+              href="/transformation"
+              variant="outlined"
+            >
               See More
             </Button>
           </Stack>
