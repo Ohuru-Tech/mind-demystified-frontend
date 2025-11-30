@@ -55,7 +55,7 @@ const loggedInNavigationItems = [
     href: "/courses",
   },
   {
-    title: "Therapy",
+    title: "Transformation",
     href: "/sessions",
   },
   {
