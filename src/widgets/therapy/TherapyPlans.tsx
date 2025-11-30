@@ -192,6 +192,7 @@ export const TherapyPlans = () => {
                         variant="body2"
                         textAlign={"right"}
                         color={"white"}
+                        component="div"
                       >
                         <Stack
                           direction={"row"}

@@ -24,6 +24,10 @@ import { usePathname } from "next/navigation";
 
 const navigationItems = [
   {
+    title: "Home",
+    href: "/",
+  },
+  {
     title: "About",
     href: "/about",
   },
