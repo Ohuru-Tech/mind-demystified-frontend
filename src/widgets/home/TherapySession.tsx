@@ -54,7 +54,7 @@ export const TherapySession = () => {
       >
         <Stack direction={"column"} spacing={"10px"}>
           <Typography variant="h2">Vedic Mind & Heart Balance</Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" component={Link} href="/transformation">
             One-on-one sessions for your every need.
           </Typography>
         </Stack>
