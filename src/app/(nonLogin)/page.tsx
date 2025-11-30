@@ -33,8 +33,8 @@ export default function Home() {
       </Container>
       <Features />
       <Courses />
-      <TherapySession />
       <Testimonials />
+      <TherapySession />
       <FAQ />
     </Box>
   );
