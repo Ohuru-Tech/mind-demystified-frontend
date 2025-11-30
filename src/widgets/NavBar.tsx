@@ -36,8 +36,8 @@ const navigationItems = [
     href: "/courses",
   },
   {
-    title: "Therapy",
-    href: "/therapy",
+    title: "Transformation",
+    href: "/transformation",
   },
   {
     title: "Contact",

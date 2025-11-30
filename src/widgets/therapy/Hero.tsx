@@ -31,7 +31,7 @@ export const Hero = () => {
           </Typography>
           <Typography variant="h1" textAlign={"center"}>
             Vedic Mind & <br />
-            Heart Therapy
+            Heart Balance
           </Typography>
           <Box sx={{ width: { xs: "100%", md: "60%" } }}>
             <Typography variant="body1" textAlign={"center"}>
